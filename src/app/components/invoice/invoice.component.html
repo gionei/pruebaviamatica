@@ -1,0 +1,21 @@
+<div class="invoice">
+  <h2 class="invoice-title">Factura</h2>
+  <p class="invoice-code">Código de Factura: <span class="black-background"> {{ factura.codigo }} </span> </p>
+  <div class="invoice-items">
+    <table class="invoice-table">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of factura.items">
+          <td>{{ item.title }}</td>
+          <td>$ {{ item.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="invoice-total">Total: $ {{ factura.total }}</p>
+</div>  

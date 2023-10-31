@@ -1,0 +1,16 @@
+<div class="products">
+    <div class="row">
+        <ng-container *ngFor="let item of productList">
+        <a [routerLink]="'/details/' + item.id"></a>
+         <mat-card class="card-inch" [ngClass]="{'selected-card': item.selected}" (click)="toggleSelection(item)">
+             <mat-card-header>
+                 <mat-card-title class="card-title"> {{item.title | slice:0:35}} </mat-card-title>
+                 </mat-card-header>         
+             <mat-card-content class="card-content">
+                 <img mat-card-image src="{{item.image}}" width="100px" height="100px"> <br>
+                 <p> <strong> USD ${{item.price}} </strong> </p>
+             </mat-card-content>
+         </mat-card>
+        </ng-container> 
+     </div>
+</div>

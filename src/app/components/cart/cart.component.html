@@ -1,0 +1,27 @@
+<div class="cart">
+    <h2>Carrito</h2>
+    <div class="cart-items">
+      <ng-container *ngFor="let item of cartItems">
+        <mat-card class="cart-item">
+          <div class="product-image-horizontal">
+            <img mat-card-image src="{{ item.image }}" alt="{{ item.title }}">
+          </div>
+          <div class="product-details-horizontal">
+            <mat-card-title class="card-title">{{ item.title }}</mat-card-title>
+            <p class="price">$ {{ item.price }}</p>
+          </div>
+          <button mat-icon-button class="delete-button" (click)="removeFromCart(item)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card>
+      </ng-container>
+    </div>
+    <mat-card class="cart-summary">
+      <mat-card-content class="card-content-horizontal">
+        <h3>Resumen del Carrito</h3>
+        <p>Total: $ {{ cartTotal }}</p>
+      </mat-card-content>
+      <button mat-stroked-button color="primary" class="invoice-button" [disabled]="isCartEmpty"
+      (click)="generarFactura()" routerLink="/home/cart/invoice">Generar Factura</button>
+    </mat-card>
+  </div>  

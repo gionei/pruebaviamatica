@@ -1,0 +1,28 @@
+<div class="details">
+    <mat-card class="product-card-horizontal">
+        <mat-card-content class="card-content-horizontal">
+            <div class="product-image-horizontal">
+                <img mat-card-image src="{{ product.image }}" alt="{{ product.title }}">
+            </div>
+            <div class="product-details-horizontal">
+                <mat-card-header class="card-header">
+                    <mat-card-title class="card-title">{{ product.title }}</mat-card-title>                  
+                </mat-card-header>
+                <p class="price"><strong>Categoría:</strong> {{ product.category }}</p>
+                <p class="price"><strong>Precio:</strong> ${{ product.price }}</p>
+                <p class="description"><strong>Descripción:</strong> {{ product.description }}</p>
+                <mat-card-actions class="card-actions">
+                    <button mat-button class="add-to-cart-button" color="primary" 
+                    *ngIf="!isClicked" (click)="addToCart()">
+                        <mat-icon>add_shopping_cart</mat-icon>
+                        Agregar al carrito
+                    </button>
+                    <button mat-button color="basic" class="cart-button" *ngIf="isClicked" [ngClass]="{ 'added': isClicked }">
+                        <mat-icon>check_circle</mat-icon>
+                        Agregado
+                      </button>
+                </mat-card-actions>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
